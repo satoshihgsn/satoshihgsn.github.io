@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>◆ EleganceClip ◆</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* グローバルスタイル */
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdfcfb 0%, #ebedee 100%); /* 非常に淡いグラデーション */
+            color: #333;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* コンテナ */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        /* ヘッダー */
+        header {
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #5a2d5e; /* 深みのあるパープル */
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        p.tagline {
+            font-size: 1.2em;
+            color: #7b688d; /* 落ち着いたラベンダー */
+            font-style: italic;
+        }
+
+        /* 入力セクション */
+        .input-section {
+            margin-bottom: 40px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            color: #4b0082; /* インディゴ */
+            font-weight: bold;
+        }
+
+        input[type="url"] {
+            width: calc(100% - 60px); /* パディング考慮 */
+            padding: 18px 30px;
+            font-size: 1.1em;
+            border: 1px solid #d4c2e6; /* 淡い紫の枠 */
+            border-radius: 30px; /* 丸みを帯びたデザイン */
+            outline: none;
+            transition: all 0.4s ease;
+            box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 500px;
+        }
+
+        input[type="url"]:focus {
+            border-color: #8a2be2; /* フォーカス時の色 */
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+        }
+
+        button {
+            background-color: #8a2be2; /* 紫 */
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            border-radius: 30px; /* 丸みを帯びたボタン */
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            text-transform: uppercase; /* 大文字 */
+        }
+
+        button:hover {
+            background-color: #6a1b9a; /* ホバー時の色 */
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        /* フッター */
+        footer {
+            margin-top: 60px;
+            padding: 20px;
+            color: #999;
+            font-size: 0.85em;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+        }
+
+        /* メッセージボックス */
+        .message-box {
+            background-color: #f8f0fc; /* 淡い紫の背景 */
+            color: #6a1b9a; /* 濃い紫の文字 */
+            border: 1px solid #d4c2e6;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 12px;
+            font-size: 1em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: none; /* 初期状態では非表示 */
+            white-space: pre-wrap; /* 改行を有効にする */
+            text-align: left;
+        }
+
+        /* ローディングスピナー */
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #8a2be2; /* スピナーの色 */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none; /* 初期状態では非表示 */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            input[type="url"] {
+                width: calc(100% - 40px);
+                padding: 15px 20px;
+            }
+            button {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>◆ EleganceClip ◆</h1>
+            <p class="tagline">洗練された体験を。YouTube動画を美しくダウンロード。</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="youtubeUrl">ダウンロードしたいYouTube動画のURLを入力してください。</label>
+                <input type="url" id="youtubeUrl" placeholder="例: https://www.youtube.com/watch?v=dQw4w9WgXcQ" required>
+                <button id="downloadButton" onclick="handleDownload()">ダウンロード</button>
+            </div>
+            <div id="spinner" class="spinner"></div>
+            <div id="messageBox" class="message-box">
+                </div>
+        </main>
+
+        <footer>
+            <p>© 2025 EleganceClip. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        async function handleDownload() {
+            const urlInput = document.getElementById('youtubeUrl');
+            const downloadButton = document.getElementById('downloadButton');
+            const spinner = document.getElementById('spinner');
+            const messageBox = document.getElementById('messageBox');
+
+            const videoUrl = urlInput.value.trim();
+
+            // メッセージボックスとスピナーをリセット
+            messageBox.style.display = 'none';
+            spinner.style.display = 'none';
+            downloadButton.disabled = false; // ボタンを有効化
+            urlInput.disabled = false; // 入力欄を有効化
+
+            if (!videoUrl) {
+                messageBox.style.display = 'block';
+                messageBox.style.color = '#c62828'; // 赤色
+                messageBox.style.borderColor = '#ef9a9a';
+                messageBox.style.backgroundColor = '#ffebee';
+                messageBox.innerText = 'URLが入力されていません。動画のURLを入力してください。';
+                return;
+            }
+
+            // UIを更新して処理中であることを示す
+            downloadButton.disabled = true; // ボタンを無効化
+            urlInput.disabled = true; // 入力欄を無効化
+            spinner.style.display = 'block'; // スピナーを表示
+            messageBox.style.display = 'block';
+            messageBox.style.color = '#4b0082'; // 通常の色
+            messageBox.style.borderColor = '#d4c2e6';
+            messageBox.style.backgroundColor = '#f8f0fc';
+            messageBox.innerText = 'ダウンロード準備中... しばらくお待ちください。';
+
+
+            try {
+                // ここが重要！サーバーのURLを指定します。
+                // Renderでデプロイした後に割り当てられるURLに置き換えます。
+                // 今はまだダミーのURLですが、デプロイ後に必ず修正します。
+                const backendBaseUrl = 'YOUR_RENDER_BACKEND_URL_HERE'; // ★★★ここを修正します★★★
+                if (backendBaseUrl === 'YOUR_RENDER_BACKEND_URL_HERE') {
+                    throw new Error('サーバーのURLが設定されていません。READMEを参照してください。');
+                }
+
+                const response = await fetch(`${backendBaseUrl}/download`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ url: videoUrl })
+                });
+
+                if (response.ok) {
+                    // ファイルダウンロードをトリガー
+                    const blob = await response.blob();
+                    const contentDisposition = response.headers.get('Content-Disposition');
+                    let filename = 'downloaded_video.mp4'; // デフォルトファイル名
+
+                    if (contentDisposition && contentDisposition.indexOf('filename=') !== -1) {
+                        // filename*=UTF-8''filename.ext の形式も考慮
+                        const filenameMatch = contentDisposition.match(/filename\*?=['"]?([^"';\n]*?)['"]?(;|$)/i);
+                        if (filenameMatch && filenameMatch[1]) {
+                            try {
+                                filename = decodeURIComponent(filenameMatch[1].replace(/^UTF-8''/, ''));
+                            } catch (e) {
+                                console.warn('Filename decoding failed, using raw filename:', e);
+                                filename = filenameMatch[1];
+                            }
+                        }
+                    }
+
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = filename; // ダウンロードファイル名
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url); // オブジェクトURLを解放
+
+                    messageBox.style.color = '#2e7d32'; // 緑色
+                    messageBox.style.borderColor = '#a5d6a7';
+                    messageBox.style.backgroundColor = '#e8f5e9';
+                    messageBox.innerText = `ダウンロードが開始されました。\nファイル名: ${filename}`;
+                } else {
+                    const errorData = await response.json();
+                    messageBox.style.color = '#c62828'; // 赤色
+                    messageBox.style.borderColor = '#ef9a9a';
+                    messageBox.style.backgroundColor = '#ffebee';
+                    messageBox.innerText = `ダウンロードに失敗しました。\nエラー: ${errorData.error || '不明なエラー'}`;
+                }
+            } catch (error) {
+                messageBox.style.color = '#c62828'; // 赤色
+                messageBox.style.borderColor = '#ef9a9a';
+                messageBox.style.backgroundColor = '#ffebee';
+                messageBox.innerText = `エラーが発生しました。\n詳細: ${error.message}`;
+                console.error('Fetch error:', error);
+            } finally {
+                spinner.style.display = 'none'; // スピナーを非表示
+                downloadButton.disabled = false; // ボタンを有効化
+                urlInput.disabled = false; // 入力欄を有効化
+            }
+        }
+
+        // Enterキーでのダウンロード開始
+        document.getElementById('youtubeUrl').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                handleDownload();
+            }
+        });
+    </script>
+</body>
+</html>
