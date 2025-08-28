@@ -8,9 +8,6 @@
     <meta name="description" content="Easily save your favorite videos from the web with FrameFerry. A fast, simple, and elegant tool to download videos by just pasting the URL.">
     <meta name="keywords" content="video downloader, download video, save video, online video tool, video clip downloader">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8783706350661865"
-         crossorigin="anonymous"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Raleway:wght@400;500&display=swap" rel="stylesheet">
@@ -125,26 +122,6 @@
             cursor: not-allowed;
         }
 
-        footer {
-            margin-top: 50px;
-            padding-top: 25px;
-            color: #C0C0C0;
-            font-size: 0.9em;
-            text-align: center;
-            border-top: 1px solid #F5F5F5;
-        }
-        
-        /* New footer links style */
-        footer a {
-            color: #A0A0A0;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         .message-box {
             background-color: #f9f9f9;
             border: 1px solid #eee;
@@ -177,6 +154,34 @@
             display: none;
         }
 
+        /* --- 広告スペース用のスタイル --- */
+        .ad-space {
+            margin: 40px auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* --- ここまで --- */
+
+        footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            color: #C0C0C0;
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 1px solid #F5F5F5;
+        }
+        
+        footer a {
+            color: #A0A0A0;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -207,7 +212,13 @@
             </section>
             <div id="spinner" class="spinner"></div>
             <div id="messageBox" class="message-box"></div>
-        </main>
+            
+            <section class="ad-space">
+                <div id="frame" style="width: 100%; margin: auto; background: rgba(0, 0, 0, 0.5); position: relative; z-index: 99998;">
+                    <iframe data-aa='2408312' src='//acceptable.a-ads.com/2408312/?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display: block; margin: auto;'></iframe>
+                </div>
+            </section>
+            </main>
 
         <footer>
             <a href="/about.html">About Us</a>
