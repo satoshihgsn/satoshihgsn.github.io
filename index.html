@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>FrameFerry - Simple & Elegant Video Downloader</title>
-    <meta name="description" content="Easily save your favorite videos from the web with FrameFerry. A fast, simple, and elegant tool to download videos by just pasting the URL.">
+    <title>FrameFerry - Simple & Fast Online Video Downloader</title>
+    <meta name="description" content="FrameFerry is a fast, simple, and elegant online tool for downloading your favorite videos. Just paste a URL to save any video from the web directly to your device.">
     <meta name="keywords" content="video downloader, download video, save video, online video tool, video clip downloader">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -154,14 +154,12 @@
             display: none;
         }
 
-        /* --- 広告スペース用のスタイル --- */
         .ad-space {
             margin: 40px auto 20px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        /* --- ここまで --- */
 
         footer {
             margin-top: 50px;
@@ -203,6 +201,10 @@
         </header>
 
         <main>
+            <p style="max-width: 500px; margin: 0 auto 40px; font-size: 1.1em;">
+                Welcome to FrameFerry. This free online tool helps you quickly and easily download videos from various websites. Simply paste the video URL into the box below and click "Download".
+            </p>
+
             <section class="input-section">
                 <label for="videoUrl" class="input-label">Paste the video URL to begin your download.</label>
                 <div class="input-wrapper">
@@ -218,7 +220,7 @@
                     <iframe data-aa='2408312' src='//acceptable.a-ads.com/2408312/?size=Adaptive' style='border:0; padding:0; width:70%; height:auto; overflow:hidden; display: block; margin: auto;'></iframe>
                 </div>
             </section>
-            </main>
+        </main>
 
         <footer>
             <a href="/about.html">About Us</a>
@@ -238,8 +240,6 @@
 
         async function handleDownload() {
             const videoUrl = urlInput.value.trim();
-
-            // Reset UI
             messageBox.style.display = 'none';
             messageBox.className = 'message-box';
             spinner.style.display = 'none';
@@ -251,7 +251,6 @@
                 return;
             }
 
-            // Start loading state
             downloadButton.disabled = true;
             urlInput.disabled = true;
             spinner.style.display = 'block';
